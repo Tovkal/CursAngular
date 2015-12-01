@@ -1,0 +1,23 @@
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<script src="angular.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<div ng-controller="OcultarController">
+			<p style="background-color:red;" ng-show="oculto">ROJO</p>
+			<p style="background-color:green;" ng-hide="oculto">VERDE</p>
+			<button ng-click="cambioColor()">Cambia Color</button>
+		</div>
+		<div ng-controller="SumarController">
+			<select ng-model="operando1" ng-options="num for num in valores" ng-init="operando1 = 1"></select> + <select ng-model="operando2" ng-options="num for num in valores" ng-init="operando2 = 1"></select> ={{sumar()}}
+		</div>
+		<div ng-controller="MainController">
+			<div ng-mouseenter="entraMouse($event)"
+				ng-mouseleave="saleMouse($event)"
+				ng-mousedown="clickMouse($event)" style="background-color:red; width: 200px; height: 200px;">
+			</div>
+		</div>
+	</body>
+</html>
