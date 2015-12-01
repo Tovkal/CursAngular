@@ -69,7 +69,7 @@
 				<tr ng-repeat="item in tareas">
 					<td ng-bind="item.desc"></td>
 					<td>
-						<button ng-click="eliminarTarea(item)">Eliminar</button>
+						<button ng-click="eliminarTarea($index)">Eliminar</button>
 					</td>
 				</tr>
 			</table>
