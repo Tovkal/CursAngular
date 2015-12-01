@@ -1,0 +1,49 @@
+<html ng-app="stockApp">
+	<head>
+		<script src="angular.min.js"></script>
+		<script src="app.js"></script>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div>
+			<p ng-init="cont = 1">
+				Tenemos {{ cont + (cont == 1 ? " manzana" : " manzanas") }} en stock
+			</p>
+			<div>
+				Introduce una palabra <input type="text" ng-model="palabra"><br>
+				La palabra es <span ng-bind="palabra"></span>
+			</div>
+			<div>
+				<h3>Ejercicio 3</h3>
+				Soy multimillonario <input type="checkbox" ng-model="check" ng-true-value="'Si'" ng-false-value="'No'"></input>
+				¿Eres multimillonario? <span>{{check}}</span>
+			</div>
+			<div>
+				<h3>Ejercicio 4</h3>
+				<div>
+					Selecciona tu país de origen
+					<select ng-model="pais">
+						<option value="es" selected>España</option>
+						<option value="us">Estados Unidos</option>
+						<option value="uk">Reino Unido</option>
+					</select>
+					<br>El código de tu país es <strong ng-bind="pais"></strong>
+					<input type="radio" name="secondCountrySelector" ng-model="pais" value="NI">Nicaragua</input>
+					<input type="radio" name="secondCountrySelector" ng-model="pais" value="FR">Francia</input>
+					<input type="radio" name="secondCountrySelector" ng-model="pais" value="KN">Corea del Norte</input>
+				</div>
+			</div>
+			<div>
+				<h3>Ejercicio 5</h3>
+				<div ng-init="paises = [{pais: 'España', codigo: 'es'}, {pais: 'Reino
+					Unido', codigo: 'uk'}, {pais: 'Francia', codigo: 'fr'}, {pais: 'Estados
+					Unidos', codigo: 'us'}, {pais: 'Alemania', codigo: 'de'}]">
+					Selecciona tu país de origen
+					<select ng-model="pais" ng-options="pais.codigo as pais.pais for pais in
+					paises" ng-init="pais = 'es'"></select>
+					<br>País seleccionado <strong ng-bind="pais"></strong>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
