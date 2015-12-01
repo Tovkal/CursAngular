@@ -1,0 +1,79 @@
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<script src="angular.min.js"></script>
+		<script src="app.js"></script>
+		<style>
+		.numero {
+			background-color: gray;
+			border-radius: 5px;
+			padding: 3px;
+		}
+		.verde {
+			background-color: green;
+		}
+		.rojo {
+			background-color: red;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+		.orange {
+			background-color: orange;
+		}
+		.pink {
+			background-color: pink;
+		}
+		</style>
+	</head>
+	<body>
+		<h4>Exercici 1</h4>
+		<div ng-controller="TemarioController">
+			<ol>
+				<li ng-repeat="tema in temas">
+					{{tema.nombre}}
+					<ol>
+						<li ng-repeat="capitulo in tema.capitulos">
+							{{capitulo.nombre}}
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+		<hr>
+		<h4>Exercici 2</h4>
+		<div ng-controller="TemarioController">
+			<span ng-repeat="tema in temas" style="padding-left: 20px;">
+				{{$index + 1}}. {{tema.nombre}}
+				<br>
+				<span ng-repeat="capitulo in tema.capitulos" style="padding-left: 50px;">
+					{{$parent.$index + 1}}.{{$index + 1}}. {{capitulo.nombre}}
+					<br>
+				</span>
+			</span>
+		</div>
+		<hr>
+		<h4>Exercici 3</h4>
+		<ol>
+			<li ng-repeat="val in [1,2,3,4,5]">
+				<span class="numero"
+					ng-class="{'verde': !$middle}">
+					{{val}}
+				</span>
+			</li>
+		</ol>
+		<hr>
+		<h4>Exercici 4</h4>
+		<div ng-controller="CallbackController">
+			<table>
+				<tr ng-repeat="item in tareas">
+					<td ng-bind="item.desc"></td>
+					<td>
+						<button ng-click="eliminarTarea(item)">Eliminar</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</body>
+</html>
