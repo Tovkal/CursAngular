@@ -31,8 +31,4 @@ angular.module('app').controller('CallbackController', function($scope) {
 		id: 4,
 		desc: "Arreglar ordenador"
 	}];
-
-	$scope.eliminarTarea = function(index) {
-		$scope.tareas.splice(index, 1);
-	};
 });
