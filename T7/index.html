@@ -1,20 +1,22 @@
 <html ng-app="app">
 	<head>
 		<meta charset="utf-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="assets/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="assets/bootstrap-theme.min.css">
+		<script src="assets/jquery-1.11.3.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="assets/bootstrap.min.js"></script>
 		<script src="angular.js"></script>
+		<link rel="stylesheet" href="assets/ng-table.min.css">
+		<script src="assets/ng-table.js"></script>
 		<script src="app.js"></script>
 		<script src="controllers/controllers.js"></script>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
-	<body>
+	<body style="background: yellow;">
 		<div ng-controller="PeliculasController">
-			<h2 style="color: red;">IMDB version diskete</h2>
+			<h1 style="color: red;">IMDB version diskete</h1>
 			<h3>Filtro</h3>
 			<div style="margin-top: 10px;">
 				<div class="container" style="width: 600px; margin-left: 0;">
@@ -54,19 +56,16 @@
 				</div>
 			</div>
 			<br><hr>
-			<table class="table">
-				<thhead>
-					<tr><th>Nombre</th><th>Año</th><th>Oscar</th></tr>
-				</thhead>
+			<table ng-table="tableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
 				<tbody>
-					<tr ng-repeat="peli in peliculas | filter: {name:name, year:year, oscar: filterByAward ? (oscar ? 'si' : 'no') : ''}">
-						<td ng-bind="peli.name"></td>
-						<td ng-bind="peli.year"></td>
-						<td ng-bind="peli.oscar"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</body>
+					<tr ng-repeat="peli in $data"><!-- |  filter: {name:name, year:year, oscar: filterByAward ? (oscar ? 'si' : 'no') : ''"> -->
+					<td title="'Nombre'" filter="{ name: 'text'}" sortable="'name'">{{peli.name}}</td>
+					<td title="'Año'" filter="{ year: 'number'}" sortable="'year'">{{peli.year}}</td>
+					<td title="'Oscar'" filter="{ oscar: 'text'}" sortable="'oscar'">{{peli.oscar}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
 </body>
 </html>
