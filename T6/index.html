@@ -1,0 +1,23 @@
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<script src="angular.js"></script>
+		<script src="app.js"></script>
+		<script src="services/mathService.js"></script>
+		<script src="controllers/controllers.js"></script>
+	</head>
+	<body>
+		<div ng-controller="ContadorController">
+			<span ng-bind="cont.num"></span>
+			<button ng-click="incrementarContador()">Incrementa</button>
+		</div>
+		<div ng-controller="CalculadoraController">
+			Introduce un número
+			<input type="number" ng-model="num">
+			<button ng-click="calcularCuadrado()">X<sup>2</sup></button>
+			<button ng-click="calcularCubo()">X<sup>3</sup></button>
+			<div>Respuesta: {{respuesta}}</div>
+		</div>
+	</body>
+</body>
+</html>
