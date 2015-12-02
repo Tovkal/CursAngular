@@ -1,0 +1,38 @@
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<script src="angular.js"></script>
+		<script src="app.js"></script>
+		<script src="services/mathService.js"></script>
+		<script src="controllers/controllers.js"></script>
+	</head>
+	<body>
+		<div ng-controller="PeliculasController">
+			<h2 style="color: red;">IMDB version diskete</h2>
+			<h3>Filtro</h3>
+			Buscar por nombre de pelicula: <input type="text" ng-model="name"/><br>
+			Buscar por año: <input type="text" ng-model="year" style="margin-left: 100px;" /><br>
+			Buscar todas las películas: <input type="radio" ng-model="filterByAward" ng-value="false"/> 
+			Filtrar por premiadas: <input type="radio" ng-model="filterByAward" ng-value="true" i/> 
+			<span ng-show="filterByAward">
+			Buscar peliculas premiadas: <input type="checkbox" ng-model="oscar"/>
+			</span>
+
+			<div></div>
+			<hr>
+			<table>
+				<thhead>
+					<tr><th>Nombre</th><th>Año</th><th>Oscar</th></tr>
+				</thhead>
+				<tbody>
+					<tr ng-repeat="peli in peliculas | filter: {name:name, year:year, oscar: oscar ? 'si' : 'no'}">
+						<td ng-bind="peli.name"></td>
+						<td ng-bind="peli.year"></td>
+						<td ng-bind="peli.oscar"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</body>
+</html>
