@@ -33,6 +33,5 @@ app.service('CalculadoraService', function(MathService) {
 			return result;
 		}
 		return factorial(a);
-
 	};
 });

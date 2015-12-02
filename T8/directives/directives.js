@@ -28,6 +28,6 @@ app.directive('factorial', function(CalculadoraService) {
 			scope.result = CalculadoraService.factorial(attrs.factorial).valueOf();
 		},
 		restrict: 'E',
-		template: "Factorial de {{original}} = {{result}}"
+		template: "<span>Factorial de {{original}} = {{result}}</span>"
 	};
 });
