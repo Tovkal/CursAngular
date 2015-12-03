@@ -1,0 +1,32 @@
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="assets/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="assets/bootstrap-theme.min.css">
+		<script src="assets/jquery-1.11.3.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="assets/bootstrap.min.js"></script>
+		<script src="angular.js"></script>
+		<script src="app.js"></script>
+		<script src="controllers/controllers.js"></script>
+		<script src="directives/directives.js"></script>
+		<script src="services/services.js"></script>
+		<script src="assets/angular-route.min.js"></script>
+		<script src="routes/router.js"></script>
+	</head>
+	<body ng-controller="TiempoController">
+		<input type="text" ng-model="ciudad"></input><button ng-click="getTiempo()">Obtener tiempo</button><br>
+		<div style="width: 300px;">
+			{{ciudad}}
+			{{temperatura}} <img src="http://openweathermap.org/img/w/{{icono}}.png" style="float:right;" />
+			{{descripcion}}
+			{{lat}}, {{lon}}
+			<br>
+			<img src="http://maps.googleapis.com/maps/api/staticmap?
+			center={{latitud}},{{longitud}}&zoom=8&size=200x100&sensor=true"
+			width="200px;"/>
+		</div>
+	</body>
+</html>
