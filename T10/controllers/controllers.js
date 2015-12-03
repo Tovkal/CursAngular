@@ -15,7 +15,7 @@ app.controller('TiempoController', function($scope, $http) {
 			}, function(response) {
 				console.log("Error:");
 				console.log(response);
-				//función que se ejecuta cuando obtenemos error
+				alert("Ha petao");
 			});
 	};
 });
